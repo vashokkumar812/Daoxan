@@ -1,0 +1,131 @@
+{% load static %}
+{% url 'homer' as home_url  %}
+{% url 'products_list' as products_url %}
+{% url 'login' as login_url  %}
+{% url 'logout' as logout_url  %}
+{% url 'register' as register_url  %}
+{% url 'home_a' as account_url %}
+{% url 'home' as cart_url %}
+<style>
+        .fa-facebook{
+            color: teal;
+            font-size: 2.0em;
+        }
+        .fa-instagram{
+            color: teal;
+            font-size: 2.0em;
+        }
+        .fa-twitter{
+            color: teal;
+            font-size: 2.0em;
+        }
+        .navbar-brand{
+          color: teal;
+            font-size: 2.0em;
+        }
+        .btn-success{
+            background-color: teal;
+            font-size: 1.0em;
+        }
+        .btn-success:hover{
+            background: rgb(72,158,125);
+            background: linear-gradient(90deg, rgba(72,158,125,1) 0%, rgba(20,54,20,1) 50%, rgba(22,116,16,1) 100%);
+        }
+        .fa-facebook:hover{
+            color:green;
+        }
+        .fa-instagram:hover{
+            color:green;
+        }
+        .fa-twitter:hover{
+            color:green;
+        }
+
+    </style>
+<nav class="navbar navbar-expand bg-light">
+  <a class="navbar-brand thelogo text-center" href="{{ home_url }}"><img class="logo h-40" src="{% static 'img/LOGO_DAX.png' %}"></a>
+
+  <!-- Links -->
+  <ul class="social-media d-sm-flex d-none navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+    </li>
+  </ul>
+
+</nav>
+<div class="bg-light social-media d-sm-none d-block text-center w-100">
+    <div class="d-inline-block">
+      <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+    <div class="d-inline-block">
+      <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="d-inline-block">
+      <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if request.path == home_url %} active {% endif %}">
+        <a class="nav-link" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mx-3 {% if request.path == products_url %} active {% endif %}">
+        <a class="nav-link" href="/products/list/?category=1">Commercial Products</a>
+      </li>
+      <li class="nav-item mx-3 {% if request.path == products_url %} active {% endif %}">
+        <a class="nav-link" href="/products/list/?category=2">Kitchen Garden</a>
+      </li>
+      <li class="nav-item mx-3 {% if request.path == products_url %} active {% endif %}">
+        <a class="nav-link" href="/products/list/?category=3">Herbs and Leaves</a>
+      </li>
+      <li class="nav-item mx-3 {% if request.path == products_url %} active {% endif %}">
+        <a class="nav-link" href="/products/list/?category=4">Microgreens</a>
+      </li>
+      <li class="nav-item mx-3 {% if request.path == products_url %} active {% endif %}">
+        <a class="nav-link" href="/products/list/?category=5">Trees</a>
+      </li>
+<!--      <li class="nav-item {% if request.path == products_url %} active {% endif %}">-->
+<!--        <a class="nav-link" href="{{ products_url }}">Products</a>-->
+<!--      </li>-->
+      {% if request.user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if request.path == account_url %} active {% endif %}" href="{{ account_url }}">Home</a>
+          <a class="dropdown-item" href="#">Support</a>
+          <a class="dropdown-item" href="#">Billing</a>
+          <a class="dropdown-item" href="#">Personal Info</a>
+          <a class="dropdown-item" href="#">History</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
+        </div>
+      </li>
+      {% else %}
+      <li class="nav-item {% if request.path == login_url %} active {% endif %}">
+        <a class="nav-link" href="{{ login_url }}">Login</a>
+      </li>
+      <li class="nav-item {% if request.path == register_url %} active {% endif %}">
+        <a class="nav-link" href="{{ register_url }}">register</a>
+      </li>
+      {% endif %}
+
+      <li class="nav-item {% if request.path == cart_url %} active {% endif %}">
+        <a class="nav-link" href="{{ cart_url }}"><span class="navbar-cart-count">{{ request.session.cart_items }}</span><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+      </li>
+
+    </ul>
+         <div class="d-none d-lg-block ">{% include 'search/search-form.html' %}</div>
+       </div>
+</nav>

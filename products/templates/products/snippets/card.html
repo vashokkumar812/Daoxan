@@ -1,0 +1,42 @@
+{% load util %}
+{% if instance.variant_of is None %}
+<style>
+    h1,h2,h3,h4,h5{
+        font-family: 'Balsamiq Sans', cursive;
+        color:#293462;
+    }
+    .card{
+        border-radius:50px 0;
+        box-shadow: 2px 2px #6CCECB;
+    }
+        .embed-responsive .card-img-top {
+    object-fit: cover;
+}
+</style>
+<div class="container">
+<div class="row">
+    <div class="col-sm-12 col-lg-4 my-3">
+<div class="card h-100" style="width:17em;">
+    {% if instance.image %}
+    <a href="{{ instance.get_absolute_url }}" class="">
+        <div class="embed-responsive embed-responsive-4by3">
+  <img class="card-img-top embed-responsive-item" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
+        </div>
+        </a>
+    {% endif %}
+  <div class="card-body">
+    <h4 class="card-title text-center">{{ instance.title }}</h4>
+      {% if instance.variety != "nan" %}
+      <h6>Variety - {{instance.variety}}</h6>
+      {% endif %}
+
+    <p class="card-text text-justify">{{ instance.description | truncatewords:15 }}</p>
+
+    <center><a href="{{ instance.get_absolute_url }}" class="btn btn-success">Shop Now!</a></center>
+
+  </div>
+</div>
+    </div>
+</div>
+</div>
+{% endif %}

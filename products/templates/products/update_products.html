@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% block title %} Upload Products {% endblock %} {% block branding %}
+<h1 id="site-name">
+  <a href="{% url 'admin:index' %}">Gogoz Admininstrator Dashboard</a>
+</h1>
+{% endblock %} {% block nav-global %}
+<style>
+  label {
+    display: none;
+  }
+</style>
+
+<div id="user-tools">
+  Welcome, {{ user.get_username }}.
+  <a href="/">View site</a>/
+<!--  <a href="{% url 'admin:password_change' %}">Change password</a> /-->
+<!--  <a href="{% url 'admin:logout' %}">Log out</a>-->
+</div>
+
+{% endblock %} {% block content %}
+<h1>Update products</h1>
+<form
+  action="{% url 'update_products' %}"
+  method="post"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %}
+  <input
+    type="text"
+    name="category_id"
+    required="required"
+    placeholder="Category ID"
+  />
+  <br />
+  <br />
+  <input
+    type="file"
+    title="Upload products excel file"
+    name="excel_file"
+    required="required"
+    style="border: 1px solid lightgrey; padding: 5px"
+  />
+  <input type="submit" value="Upload" y />
+</form>
+<br />
+<hr />
+<br />
+{% if done %}
+<h1>Done!</h1>
+{% endif %}
+<!-- prettier-ignore -->
+<br />
+{% endblock %}

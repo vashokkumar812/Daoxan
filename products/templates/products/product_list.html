@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+            {% for obj in object_list %}
+
+            {% if obj.variant_of is None %}
+             <div class="col">
+                {% include 'products/snippets/card.html' with instance=obj list=object_list %}
+            </div>
+            {% endif %}
+
+            {% endfor %}
+    </div>
+
+{% endblock %}

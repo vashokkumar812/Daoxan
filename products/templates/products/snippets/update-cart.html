@@ -1,0 +1,29 @@
+
+
+        {% if product in cart.products.all %}
+     <div class="submit-span-{{product.id}}">
+           <form class="form-product-ajax" method="POST" action="/cart/update/" data-endpoint="/cart/update/" > 
+           {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product.pk }}" />
+    
+      <input type="submit" class="btn btn-success" value="Add again" />
+      </form><br/>
+          <form class="form-product-ajax" method="POST" action="/cart/update/" data-endpoint="/cart/update/" > 
+           {% csrf_token %}
+            <input name="remove" type="hidden" value="true" />
+              <input type="hidden" name="product_id" value="{{ product.pk }}" />
+    
+           <input type="submit" class="btn btn-danger" value="Remove?" /> 
+            </form>
+             </div>
+        {% else %}
+        <div class="submit-span-{{product.id}}">
+            <form class="form-product-ajax" method="POST" action="/cart/update/" data-endpoint="/cart/update/" > {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product.pk}}" />
+
+            <input type="submit" class="btn btn-success" value="Add to cart" />
+            </form>
+            </div>
+        {% endif %}
+  
+

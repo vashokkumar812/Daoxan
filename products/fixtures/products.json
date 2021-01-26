@@ -1,0 +1,96 @@
+[
+{
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+        "name": "Commercial Products"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+        "name": "Kitchen Garden"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "Herbs and Leaves"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+        "name": "Microgreens"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+        "name": "Flowers"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "name": "Trees"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+        "name": "Suppliment"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category_id": 2,
+        "title": "Plant",
+        "slug": "plant",
+        "description": "This is a very healthy plant seed",
+        "price": "7.99",
+        "image": "products/1546732/1546732.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2020-12-07T10:41:44.724Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "category_id": 4,
+        "title": "Microgreens",
+        "slug": "microgreens",
+        "description": "These are very healthy",
+        "price": "10.00",
+        "image": "products/632030/632030.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2020-12-07T10:41:44.724Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category_id": 3,
+        "title": "seeds",
+        "slug": "seeds",
+        "description": "some good seeds",
+        "price": "8.30",
+        "image": "products/789840/789840.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2020-12-07T10:41:44.724Z"
+    }
+}
+]
