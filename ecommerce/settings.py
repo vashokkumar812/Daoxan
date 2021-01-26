@@ -100,13 +100,13 @@ DATABASES = {
 
         'NAME': 'newecom',
 
-        'USER': 'postgres',
+        'USER': 'ecom_admin',
 
         'PASSWORD': '1234',
 
         'HOST': 'localhost',
 
-        'PORT': '5432',
+        'PORT': '',
 
     }
 
