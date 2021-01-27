@@ -100,7 +100,7 @@ DATABASES = {
 
         'NAME': 'newecom',
 
-        'USER': 'ecom_admin',
+        'USER': 'postgres',
 
         'PASSWORD': '1234',
 

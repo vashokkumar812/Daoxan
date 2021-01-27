@@ -10,9 +10,11 @@ from .forms import ContactForm
 
 def home_page(request):
     queryset=Product.objects.filter(category_id=2,featured=True)
+    featured = Product.obejcts.filter(featured=True)
     context={
         "title":"hi there",
-        "instance":queryset
+        "instance":queryset,
+        "featured":featured
     }
     if request.user.is_authenticated:
         context["premium"]= "yeahhhh"
