@@ -25,7 +25,7 @@ SECRET_KEY = '3u=dfb3_q)tt8=i4-b47f59sq7lsum9avnl0(#@6gj*r011d)o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1',"167.172.232.249","daoxan.com"]
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1',"167.172.232.249","daoxan.com",".daoxan.com"]
 
 
 
